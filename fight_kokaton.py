@@ -141,6 +141,14 @@ class Bomb:
         screen.blit(self.img, self.rct)
 
 
+class Score:
+    """
+    スコアに関するクラス
+    """
+    
+    
+
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
@@ -164,7 +172,7 @@ def main():
         screen.blit(bg_img, [0, 0])
         
         for bomb in bombs:
-            if bird.rct.colliderect(bomb.rct):
+            if bird.rct.colliderect(bomb.rct): # ビームと爆弾が衝突したか判定
                 # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
                 bird.change_img(8, screen)
                 fonto =pg.font.Font(None, 80)
@@ -176,7 +184,7 @@ def main():
 
         for i, bomb in enumerate(bombs):
             if beam is not None:
-                if beam.rct.colliderect(bomb.rct):
+                if beam.rct.colliderect(bomb.rct): # 
                     beam = None
                     bombs[i] = None
                     bird.change_img(6,screen)
